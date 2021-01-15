@@ -1,0 +1,85 @@
+            // case ("*"):
+            //     arithmetic.push(value);
+            //     if (digitOne ===  undefined) {
+
+                    
+            //         arrayToString(firstNumber);
+            //         console.log(digitOne);
+            //     } else if (digitTwo ===  null) {
+            //         if (secondNumber.length === 0) {
+
+            //         } else {
+            //             arrayToString(secondNumber);
+            //         console.log(digitTwo);
+            //         operate(digitOne,digitTwo,arithmetic[arithmetic.length-2]);
+            //         }
+                    
+            //     } else {
+                    
+            //     }
+                
+            //     // console.log(arithmetic);
+            //     break;
+
+            // case ("/"):
+            //     arithmetic.push(value);
+            //     if (digitOne ===  undefined) {
+
+                    
+            //         arrayToString(firstNumber);
+            //         console.log(digitOne);
+            //     } else if (digitTwo ===  null) {
+            //         if (secondNumber.length === 0) {
+
+            //         } else {
+            //             arrayToString(secondNumber);
+            //         console.log(digitTwo);
+            //         operate(digitOne,digitTwo,arithmetic[arithmetic.length-2]);
+            //         }
+                    
+            //     } else {
+                    
+            //     }
+            //     break;
+
+            // case ("-"):
+            //     arithmetic.push(value);
+            //     if (digitOne ===  undefined) {
+
+                    
+            //         arrayToString(firstNumber);
+            //         console.log(digitOne);
+            //     } else if (digitTwo ===  null) {
+            //         if (secondNumber.length === 0) {
+
+            //         } else {
+            //             arrayToString(secondNumber);
+            //         console.log(digitTwo);
+            //         operate(digitOne,digitTwo,arithmetic[arithmetic.length-2]);
+            //         }
+                    
+            //     } else {
+                    
+            //     }
+            //     break;
+
+            // case ("+"):
+            //     arithmetic.push(value);
+            //     if (digitOne ===  undefined) {
+
+                    
+            //         arrayToString(firstNumber);
+            //         console.log(digitOne);
+            //     } else if (digitTwo ===  null) {
+            //         if (secondNumber.length === 0) {
+
+            //         } else {
+            //             arrayToString(secondNumber);
+            //         console.log(digitTwo);
+            //         operate(digitOne,digitTwo,arithmetic[arithmetic.length-2]);
+            //         }
+                    
+            //     } else {
+                    
+            //     }
+            //     break;
