@@ -84,6 +84,7 @@ function App() {
         if (typeof value === 'number') {
 
             if (arithmetic.length === 0) {
+                
                 firstNumber.push(value);
                 setScreenNuber(() => { return firstNumber.toString().replace(/,/g, "") });
             } else {
@@ -145,7 +146,9 @@ function App() {
                 case ("x²"):
                     setScreenNuber((prevalue) => {
                         console.log(prevalue);
-                        return (prevalue * prevalue);
+                        digitOne = (prevalue * prevalue);
+                        digitTwo = null;
+                        return (digitOne);
                     });
                     break;
                 case ("+/-"):
@@ -214,7 +217,10 @@ function App() {
                     break;
                 case ("cross"):
                     if (secondNumber.length === 0) {
+                        console.log(firstNumber);
                         firstNumber.pop();
+                        console.log(firstNumber);
+                        digitOne = parseFloat(firstNumber.toString().replace(/,/g, ""));
                         setScreenNuber(() => { return firstNumber.toString().replace(/,/g, "") });
                     } else if (firstNumber.length === 0) {
 
@@ -244,7 +250,7 @@ function App() {
                     <Textarea class="display-area" numberToShow={screenNumber} />
 
 
-                    <div className="container-fluid ">
+                    <div className="container button-area">
                         <Row clicked={calculate} />
                     </div>
 
