@@ -215,9 +215,9 @@ function App() {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-3 hide">1</div>
+                <div className="col-lg-3 hide">1</div>
 
-                <div className="col-12 col-md-6 calculater">
+                <div className="col-12 col-lg-6 calculater">
 
                     <Textarea class="display-area" numberToShow={screenNumber} />
 
@@ -228,7 +228,7 @@ function App() {
 
                 </div>
 
-                <div className="col-md-3 hide"></div>
+                <div className="col-lg-3 hide"></div>
             </div>
         </div>
     )
