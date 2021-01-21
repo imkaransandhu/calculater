@@ -54,6 +54,7 @@ body{
 /* Button div CSS */
 .button-area {
     height: 60vh;
+    margin-top: 3%;
 }
 
 
@@ -97,14 +98,12 @@ body{
 
 .cal-btn:active {
     background-color: #004445;
-
-    
 }
 
 
 
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 800px) {
 
     .cal-row {
         margin-top: 2%;
