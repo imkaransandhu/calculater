@@ -1,5 +1,12 @@
 
+/* Body */ 
+body{
+    background-color: #021C1E;
+}
 
+
+
+/* Hide Some column in big screen */
 .hide {
     visibility: hidden;
 }
@@ -8,8 +15,7 @@
 
 
 
-
-
+/* Calculater div CSS */
 .calculater {
     text-align: center;
     background-color: #021C1E;
@@ -17,6 +23,8 @@
     height: 100vh;
 }
 
+
+/* Each Button Column CSS */
 .cal-row {
     margin-top: 1%;
     margin-bottom: 1%;
@@ -25,7 +33,7 @@
 
 
 
-
+/* Input CSS */
 .display-area {
     width: 80%;
     margin: 0;
@@ -34,19 +42,20 @@
     border: none;
     background-color: #021C1E;
     color: #fff;
-    height: 25vh;
-    vertical-align: bottom;
-}
-
-
-.button-area {
-    height: 60vh;
+    height: 25vh;    
 }
 
 .display-area::placeholder{ 
     font-size: 2rem;
     transform: translateY(3rem);
 }
+
+
+/* Button div CSS */
+.button-area {
+    height: 60vh;
+}
+
 
 .cal-btn {
     color: #fff;
@@ -56,6 +65,7 @@
     border: none;
     font-size: 2rem;
     border-radius: 0;
+
 }
 
 #operater {
@@ -66,18 +76,35 @@
     border: none;
     font-size: 2rem;
     border-radius: 0;
+    
 }
 
-.cal-btn:focus {
+.cal-btn:hover,#operater:hover{
+    color: white;
+}
+ 
+
+#operater:focus {
+    background-color:#fff;
+    color: #6Fb98F;
+}
+
+
+.cal-btn:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.cal-btn:active {
     background-color: #004445;
+
+    
 }
 
-/* ddc3a5 e0a96d */
+
 
 
 @media only screen and (max-width: 767px) {
-
-
 
     .cal-row {
         margin-top: 2%;
@@ -89,8 +116,6 @@
         height: 100vh;
 
     }
-
-
 
     .hide {
         display: none;

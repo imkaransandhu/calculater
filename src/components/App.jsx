@@ -11,22 +11,25 @@ var arithmetic = [];
 var digitOne;
 var digitTwo = null;
 
-
+var result;
 
 function App() {
+    // Change input placeholder variable to change on click
     var [screenNumber, setScreenNuber] = React.useState("");
+
+
+    function showOnScreen(givenArray) {
+        return givenArray.toString().replace(/,/g, "");
+    }
+
 
 
     // Function for operation - + / *
     function operate(firstDigit, secondDigit, operater) {
-
         firstDigit = parseFloat(firstDigit);
         secondDigit = parseFloat(secondDigit);
-        console.log(operater, firstDigit, secondDigit);
-        var result;
         switch (operater) {
             case "+":
-
                 result = (firstDigit + secondDigit);
                 break;
             case "*":
@@ -40,56 +43,41 @@ function App() {
                 break;
             default:
                 return "karan";
-            //dndonol
         }
-
         digitOne = result;
         firstNumber = result.toString().split("");
         secondNumber = [];
         digitTwo = null;
-        console.log(result);
         setScreenNuber(() => { return result });
         return result;
-
     }
 
-    //Function for changing array to string and than number
+    //Function for changing array to string and than number and negative to postive number
     function arrayToString(numberArray) {
-        console.log(numberArray);
+
+        var outcome = numberArray.toString();
+        outcome = outcome.replace(/,/g, "");
+        outcome = parseFloat(outcome);
+
         if (numberArray.includes("-") === true) {
-            var outcome = numberArray.toString();
-
-            outcome = outcome.replace(/,/g, "");
-
-            outcome = parseFloat(outcome);
-
             digitOne === undefined || null ? digitOne = "-" + outcome : digitTwo = "-" + outcome;
-            
         } else {
-            var outcome = numberArray.toString();
-
-            outcome = outcome.replace(/,/g, "");
-
-            outcome = parseFloat(outcome);
-
             digitOne === undefined || null ? digitOne = outcome : digitTwo = outcome;
         }
-        
-
     }
 
 
     // function for when button is pressed
     function calculate(value) {
+
         if (typeof value === 'number') {
 
             if (arithmetic.length === 0) {
-                
                 firstNumber.push(value);
-                setScreenNuber(() => { return firstNumber.toString().replace(/,/g, "") });
+                setScreenNuber(() => { return showOnScreen(firstNumber); });
             } else {
                 secondNumber.push(value);
-                setScreenNuber(() => { return secondNumber.toString().replace(/,/g, "") });
+                setScreenNuber(() => { return showOnScreen(secondNumber); });
             }
 
 
@@ -97,44 +85,31 @@ function App() {
 
             if (value === "*" || value === "/" || value === "-" || value === "+") {
                 arithmetic.push(value);
-
-
-
                 setScreenNuber((prevalue) => { return arithmetic[arithmetic.length - 1] });
                 if (digitOne === undefined) {
-
-
                     arrayToString(firstNumber);
-                    
                 } else if (digitTwo === null) {
                     if (secondNumber.length === 0) {
-
                     } else {
                         arrayToString(secondNumber);
-
                         operate(digitOne, digitTwo, arithmetic[arithmetic.length - 2]);
                     }
-
                 } else {
-
                 }
             } else {
-
             }
 
 
             switch (value) {
+
                 case ("="):
                     if (secondNumber.length === 0) {
-
                     } else {
                         arrayToString(secondNumber);
-
                         operate(digitOne, digitTwo, arithmetic[arithmetic.length - 1]);
                     }
-
-
                     break;
+
                 case ("AC"):
                     digitTwo = null;
                     digitOne = undefined;
@@ -143,25 +118,26 @@ function App() {
                     secondNumber = [];
                     setScreenNuber(() => { return "0" });
                     break;
+
                 case ("x²"):
                     setScreenNuber((prevalue) => {
                         console.log(prevalue);
                         digitOne = (prevalue * prevalue);
-                        digitTwo = null;
+                        var digitoneToString = digitOne.toString();
+                        firstNumber = digitoneToString.split("");
+                            digitTwo = null;
                         return (digitOne);
                     });
                     break;
+
                 case ("+/-"):
                     setScreenNuber(prevalue => {
                         if (prevalue > 0) {
                             if (secondNumber.length === 0) {
                                 firstNumber.push("-");
-                                console.log(digitOne);
                                 digitOne = arrayToString(firstNumber);
-                                console.log(digitOne);
                                 return "-" + prevalue;
                             } else if (firstNumber.length === 0) {
-
                             } else {
                                 secondNumber.push("-");
                                 digitOne = arrayToString(firstNumber);
@@ -171,62 +147,58 @@ function App() {
 
                         } else if (prevalue < 0) {
                             if (secondNumber.length === 0) {
-                                var x = "-";
+                                
                                 console.log(firstNumber);
                                 for (var i = 0; i < firstNumber.length; i++) {
-
                                     if (firstNumber[i] === "-") {
-
                                         firstNumber.splice(i, 1);
                                     }
-
                                 }
-                                console.log(firstNumber);
                                 digitOne = firstNumber.toString().replace(/,/g, "");
                                 return firstNumber.toString().replace(/,/g, "");
                             } else if (firstNumber.length === 0) {
 
                             } else {
-                                var x = "-";
+                                
 
-                                for (var i = 0; i < secondNumber.length; i++) {
+                                for (var a = 0; a < secondNumber.length; a++) {
 
-                                    if (screenNumber[i] === "-") {
+                                    if (screenNumber[a] === "-") {
 
-                                        screenNumber.splice(i, 1);
+                                        screenNumber.splice(a, 1);
                                     }
 
                                 }
-                                digitOne = firstNumber.toString().replace(/,/g, "");
-                                return secondNumber.toString().replace(/,/g, "");
+                                digitOne = showOnScreen(firstNumber);
+                                return showOnScreen(secondNumber);
                             }
                         }
                     })
                     break;
+
+
                 case ("."):
                     if (secondNumber.length === 0) {
                         firstNumber.push(value);
-                        setScreenNuber(() => { return firstNumber.toString().replace(/,/g, "") });
+                        setScreenNuber(() => { return showOnScreen(firstNumber); });
                     } else if (firstNumber.length === 0) {
 
                     } else {
                         secondNumber.push(value);
-                        
-                        setScreenNuber(() => { return secondNumber.toString().replace(/,/g, "") });
+                        setScreenNuber(() => { return showOnScreen(secondNumber); });
                     }
                     break;
+
                 case ("cross"):
                     if (secondNumber.length === 0) {
-                        console.log(firstNumber);
                         firstNumber.pop();
-                        console.log(firstNumber);
-                        digitOne = parseFloat(firstNumber.toString().replace(/,/g, ""));
-                        setScreenNuber(() => { return firstNumber.toString().replace(/,/g, "") });
+                        digitOne = parseFloat(showOnScreen(firstNumber));
+                        setScreenNuber(() => { return showOnScreen(firstNumber); });
                     } else if (firstNumber.length === 0) {
 
                     } else {
                         secondNumber.pop();
-                        setScreenNuber(() => { return secondNumber.toString().replace(/,/g, "") });
+                        setScreenNuber(() => { return showOnScreen(secondNumber); });
                     }
                     break;
                 default:
