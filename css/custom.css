@@ -85,7 +85,7 @@ body{
 }
  
 
-#operater:focus {
+#operater:focus,#operater:active {
     background-color:#fff;
     color: #6Fb98F;
 }
